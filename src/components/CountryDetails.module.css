@@ -1,0 +1,39 @@
+.content{
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 50px;
+    gap:5%;
+    align-items: flex-start;
+
+}
+
+button{
+    margin: 10px 50px;
+}
+
+.flag{
+    width:40%;
+}
+.flag img{
+    width: 100%;
+    object-fit: contain;
+}
+.details{
+    width: 50%;
+    box-sizing: border-box;
+}
+.details>div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.border a{
+    text-decoration: none;
+    color: black;
+    padding: 0.8em 1.2em;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin:0 10px;
+
+}
