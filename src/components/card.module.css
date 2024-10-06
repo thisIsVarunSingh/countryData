@@ -4,6 +4,7 @@
     box-shadow: 2px 2px 6px 0 rgb(205, 205, 205), -2px -2px 6px 0 rgb(205, 205, 205);
     text-decoration: none;
     color: black;
+    position: relative;
 }
 .img{
     height: 160px;
@@ -26,4 +27,6 @@ h2, p{
 
 .card:hover{
     cursor: pointer;
+    
+    transform: scale(1.05,1.05);
 }
