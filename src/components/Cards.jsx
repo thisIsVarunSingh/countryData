@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./card.module.css";
 import { Link } from "react-router-dom";
+import ThemeContext from "../context/ThemeContext";
 
 function Cards({ name, population, region, capital, img, data }) {
+  const [isDark] = useContext(ThemeContext);
+
   return (
-    <Link className={style.card} to={`/${name}`} state={data}>
+    <Link
+      className={`${style.card} ${isDark ? style.dark : ""}`}
+      to={`/${name}`}
+      state={data}
+    >
       <div className={style.img}>
         <img src={img} alt="" />
       </div>

@@ -1,3 +1,13 @@
+*{
+    --bgcolor1:#2b3945;
+    --bgcolor2: #202c37;
+    --textcolor: white;
+}
+
+.dark{
+    background-color: var(--bgcolor2);
+}
+
 .countryList{
     display: flex;
     flex-wrap: wrap;

@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Cards from "./Cards";
 import style from "./countrieslist.module.css";
+import ThemeContext from "../context/ThemeContext";
 
 function CountriesList({ search }) {
   const [data, setData] = useState([]);
+  const [isDark] = useContext(ThemeContext);
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -12,7 +14,7 @@ function CountriesList({ search }) {
   }, []);
 
   return (
-    <div className={style.countryList}>
+    <div className={`${style.countryList} ${isDark ? style.dark : ""}`}>
       {data
         .filter(
           (data) =>

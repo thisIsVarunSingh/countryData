@@ -15,6 +15,7 @@ function Header() {
   return (
     <div className={`${style.header} ${isDark ? style.dark : ""}`}>
       <h1>Where in the worlds?</h1>
+
       <div className={style.mode} onClick={darkMode}>
         <FontAwesomeIcon icon={isDark ? faSun : faMoon} />
         <h2>{`${isDark ? "Light Mode" : "Dark Mode"}`}</h2>

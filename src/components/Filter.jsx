@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./Filter.module.css";
+import ThemeContext from "../context/ThemeContext";
 
 function Filter({ search }) {
   const data = ["Asia", "Americas", "Africa", "Europe", "Oceania"];
+  const [isDark] = useContext(ThemeContext);
+
   return (
     <select
       defaultValue={"default"}
-      className={style.filter}
+      className={`${style.filter} ${isDark ? style.dark : ""}`}
       onChange={(e) => {
         search(e.target.value.toLowerCase());
       }}
