@@ -1,3 +1,9 @@
+*{
+    --bgcolor1:#2b3945;
+    --bgcolor2: #202c37;
+    --textcolor: white;
+}
+
 .content{
     display: flex;
     width: 100%;
@@ -8,10 +14,25 @@
 
 }
 
-button{
+.button{
     margin: 10px 50px;
+    padding: 1em;
+    border-radius: 40px;
+    background-color: white;
+    color: black;
+    font-weight: 700;
+    font-size: 0.7em;
+    cursor: pointer;
 }
 
+.dark > .button{
+    background-color: var(--bgcolor1);
+    color: var(--textcolor);
+}
+
+.button:hover{
+    transform: scale(1.1);
+}
 .flag{
     width:40%;
 }
@@ -35,5 +56,20 @@ button{
     border: 1px solid black;
     border-radius: 10px;
     margin:0 10px;
+
+}
+.darkborder a{
+    text-decoration: none;
+    color: var(--textcolor);
+    padding: 0.8em 1.2em;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin:0 10px;
+
+}
+
+.dark{
+    background-color: var(--bgcolor2);
+    color: var(--textcolor);
 
 }

@@ -1,13 +1,15 @@
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./CountryDetails.module.css";
 import { Link, useLocation, useParams } from "react-router-dom";
+import ThemeContext from "../context/ThemeContext";
 
 function CountryDetails() {
   const [data, setData] = useState({});
   const pramas = useParams();
   const { state } = useLocation();
+  const [isDark] = useContext(ThemeContext);
 
   function updateData(data) {
     setData({
@@ -58,7 +60,7 @@ function CountryDetails() {
   }
 
   return (
-    <>
+    <div className={`${isDark ? style.dark : ""}`}>
       <button className={style.button} onClick={() => history.back()}>
         <FontAwesomeIcon icon={faArrowLeft} /> Back
       </button>
@@ -70,20 +72,36 @@ function CountryDetails() {
           <h1>{data.countryName}</h1>
           <div>
             <div className={style.left}>
-              <p>Native Name: {data.native}</p>
-              <p>Population: {data.population}</p>
-              <p>Region: {data.region}</p>
-              <p>Sub Region: {data.subregion} </p>
-              <p>Capital: {data.capital}</p>
+              <p>
+                <b>Native Name:</b> {data.native}
+              </p>
+              <p>
+                <b>Population:</b> {data.population}
+              </p>
+              <p>
+                <b>Region:</b> {data.region}
+              </p>
+              <p>
+                <b>Sub Region:</b> {data.subregion}{" "}
+              </p>
+              <p>
+                <b>Capital:</b> {data.capital}
+              </p>
             </div>
             <div className={style.right}>
-              <p>Top Level Domain: {data.tld}</p>
-              <p>Currencies: {data.currency}</p>
-              <p>Languages: {data.language}</p>
+              <p>
+                <b>Top Level Domain:</b> {data.tld}
+              </p>
+              <p>
+                <b>Currencies:</b> {data.currency}
+              </p>
+              <p>
+                <b>Languages:</b> {data.language}
+              </p>
             </div>
           </div>
-          <p className={style.border}>
-            Border Countries:
+          <p className={`${isDark ? style.darkborder : style.border}`}>
+            <b>Border Countries:</b>
             {data.border.map((border) => {
               return (
                 <Link key={border} to={`/${border}`}>
@@ -94,7 +112,7 @@ function CountryDetails() {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
