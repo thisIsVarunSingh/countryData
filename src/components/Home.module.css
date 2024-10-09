@@ -23,6 +23,8 @@
 
 .search{
     display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
     align-items: center;
     justify-content: space-between;
     padding: 30px 50px;

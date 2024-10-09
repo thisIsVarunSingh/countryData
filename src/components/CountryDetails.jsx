@@ -76,7 +76,8 @@ function CountryDetails() {
                 <b>Native Name:</b> {data.native}
               </p>
               <p>
-                <b>Population:</b> {data.population}
+                <b>Population:</b>{" "}
+                {Number(data.population).toLocaleString("en-IN")}
               </p>
               <p>
                 <b>Region:</b> {data.region}
@@ -101,14 +102,16 @@ function CountryDetails() {
             </div>
           </div>
           <p className={`${isDark ? style.darkborder : style.border}`}>
-            <b>Border Countries:</b>
-            {data.border.map((border) => {
-              return (
-                <Link key={border} to={`/${border}`}>
-                  {border}
-                </Link>
-              );
-            })}
+            <b>Border Countries: &nbsp;</b>
+            {data.border.length > 0
+              ? data.border.map((border) => {
+                  return (
+                    <Link key={border} to={`/${border}`}>
+                      {border}
+                    </Link>
+                  );
+                })
+              : "No border country"}
           </p>
         </div>
       </div>
