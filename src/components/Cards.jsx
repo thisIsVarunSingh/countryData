@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import style from "./card.module.css";
+import style from "./style/card.module.css";
 import { Link } from "react-router-dom";
 import ThemeContext from "../context/ThemeContext";
 

@@ -1,0 +1,44 @@
+*{
+    --bgcolor1:#2b3945;
+    --bgcolor2: #202c37;
+    --textcolor: white;
+}
+
+.shimmercard{
+    border-radius: 5px;
+    width: 260px; 
+    height: 320px; 
+    box-shadow: 2px 2px 6px 0 rgb(205, 205, 205), -2px -2px 6px 0 rgb(205, 205, 205);
+    text-decoration: none;
+    color: black;
+    position: relative;
+}
+
+.dark{
+    background-color: var(--bgcolor1);
+    color: var(--textcolor);
+    box-shadow: 2px 2px 6px 0 rgb(37, 33, 33), -2px -2px 6px 0 rgb(37, 33, 33);
+}
+
+.shimmerimg{
+    height: 160px;
+    background-color: gray;
+    border-radius: 5px 5px 0 0;
+}
+
+
+.shimmerdata{
+    padding:1em 1em;
+}
+
+.shimmerdata h2, .shimmerdata p{
+    margin: 0.5em 0;
+    width: 60%;
+    height: 18px;
+    background-color: gray;
+}
+
+.shimmerdata h2{
+    width: 70%;
+    height: 25px;
+}

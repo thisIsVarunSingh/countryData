@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import CountriesList from "./CountriesList";
-import style from "./Home.module.css";
+import style from "./style//Home.module.css";
 import SearchInput from "./SearchInput";
 import Filter from "./Filter";
 import ThemeContext from "../context/ThemeContext";

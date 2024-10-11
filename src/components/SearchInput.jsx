@@ -1,7 +1,7 @@
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
-import style from "./SearchInput.module.css";
+import style from "./style//SearchInput.module.css";
 import ThemeContext from "../context/ThemeContext";
 
 function SearchInput({ search }) {

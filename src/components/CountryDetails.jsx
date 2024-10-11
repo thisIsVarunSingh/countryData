@@ -1,7 +1,7 @@
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useEffect, useState } from "react";
-import style from "./CountryDetails.module.css";
+import style from "./style//CountryDetails.module.css";
 import { Link, useLocation, useParams } from "react-router-dom";
 import ThemeContext from "../context/ThemeContext";
 

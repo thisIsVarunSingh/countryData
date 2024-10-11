@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import style from "./Filter.module.css";
+import style from "./style//Filter.module.css";
 import ThemeContext from "../context/ThemeContext";
 
 function Filter({ search }) {
