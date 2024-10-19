@@ -7,6 +7,9 @@ export function ThemeProvider({ children }) {
     JSON.parse(localStorage.getItem("isDark"))
   );
   localStorage.setItem("isDark", isDark);
+  document.body.classList.toggle(isDark ? "dark" : "light");
+
+  console.log(document.body.classList);
 
   return (
     <ThemeContext.Provider value={[isDark, setIsDark]}>

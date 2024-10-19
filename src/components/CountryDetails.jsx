@@ -1,7 +1,6 @@
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useEffect, useState } from "react";
-import style from "./style//CountryDetails.module.css";
 import { Link, useLocation, useParams } from "react-router-dom";
 import ThemeContext from "../context/ThemeContext";
 
@@ -16,7 +15,7 @@ function CountryDetails() {
       countryName: data.name.common,
       population: data.population,
       region: data.region,
-      capital: data.capital,
+      capital: data.capital.map((capital) => capital).join(", "),
       subregion: data.subregion,
       language: Object.values(data.languages)
         .map((lang) => lang)
@@ -42,6 +41,8 @@ function CountryDetails() {
     }
   }
 
+  console.log(data.capital);
+
   useEffect(() => {
     if (state) {
       updateData(state);
@@ -60,18 +61,24 @@ function CountryDetails() {
   }
 
   return (
-    <div className={`${isDark ? style.dark : ""}`}>
-      <button className={style.button} onClick={() => history.back()}>
+    <div className={`${isDark ? "bg-[#2b3945] text-white h-full" : ""}`}>
+      <button
+        className={`mx-[50px] my-3 p-4 rounded-full font-bold text-xs cursor-pointer border hover:scale-110 ${
+          isDark ? "bg-[#202c37] text-white" : "text-black bg-white"
+        }`}
+        id="button"
+        onClick={() => history.back()}
+      >
         <FontAwesomeIcon icon={faArrowLeft} /> Back
       </button>
-      <div className={style.content}>
-        <div className={style.flag}>
-          <img src={data.flag} alt="" />
+      <div className="flex w-full flex-col md:flex-row min-h-screen px-[50px] py-[30px] gap-4 items-start">
+        <div className="md:w-2/5 w-full min-w-[300px] ">
+          <img className="w-full object-contain" src={data.flag} alt="" />
         </div>
-        <div className={style.details}>
-          <h1>{data.countryName}</h1>
-          <div>
-            <div className={style.left}>
+        <div className="w-full md:w-1/2">
+          <h1 className="text-5xl font-bold mb-6">{data.countryName}</h1>
+          <div className="flex justify-between flex-col sm:flex-row">
+            <div className="">
               <p>
                 <b>Native Name:</b> {data.native}
               </p>
@@ -89,7 +96,7 @@ function CountryDetails() {
                 <b>Capital:</b> {data.capital}
               </p>
             </div>
-            <div className={style.right}>
+            <div className="">
               <p>
                 <b>Top Level Domain:</b> {data.tld}
               </p>
@@ -101,12 +108,20 @@ function CountryDetails() {
               </p>
             </div>
           </div>
-          <p className={`${isDark ? style.darkborder : style.border}`}>
+          <p className="flex flex-wrap gap-y-4 items-center">
             <b>Border Countries: &nbsp;</b>
             {data.border.length > 0
               ? data.border.map((border) => {
                   return (
-                    <Link key={border} to={`/${border}`}>
+                    <Link
+                      className={`no-underline py-3 px-5 rounded-xl mx-2.5 cursor-pointer border border-solid hover:scale-105 hover:font-bold ${
+                        isDark
+                          ? "border-white text-white"
+                          : "border-black text-black"
+                      }`}
+                      key={border}
+                      to={`/${border}`}
+                    >
                       {border}
                     </Link>
                   );

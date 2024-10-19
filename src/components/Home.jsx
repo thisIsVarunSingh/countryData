@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import CountriesList from "./CountriesList";
-import style from "./style//Home.module.css";
 import SearchInput from "./SearchInput";
 import Filter from "./Filter";
 import ThemeContext from "../context/ThemeContext";
@@ -11,7 +10,11 @@ function Home() {
 
   return (
     <>
-      <div className={`${style.search} ${isDark ? style.dark : ""}`}>
+      <div
+        className={`flex flex-wrap gap-1 items-center px-12 py-12 justify-between ${
+          isDark ? "bg-[#202c37] text-white" : " text-black bg-white"
+        }`}
+      >
         <SearchInput search={setSearchData} />
         <Filter search={setSearchData} />
       </div>

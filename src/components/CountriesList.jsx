@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import Cards from "./Cards";
-import style from "./style/countrieslist.module.css";
 import ThemeContext from "../context/ThemeContext";
 import ShimmerCard from "./ShimmerCard";
 
@@ -17,7 +16,11 @@ function CountriesList({ search }) {
   }, []);
 
   return (
-    <div className={`${style.countryList} ${isDark ? style.dark : ""}`}>
+    <div
+      className={`flex flex-wrap justify-evenly gap-5 py-7 px-12 w-full min-h-screen ${
+        isDark ? "bg-[#202c37]" : "bg-white"
+      }`}
+    >
       {data.length
         ? data
             .filter(
@@ -38,7 +41,7 @@ function CountriesList({ search }) {
                 />
               );
             })
-        : Array.from({ length: 12 }).map((_, i) => <ShimmerCard />)}
+        : Array.from({ length: 12 }).map((_, i) => <ShimmerCard key={i} />)}
     </div>
   );
 }
